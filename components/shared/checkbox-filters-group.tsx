@@ -20,7 +20,7 @@ export const CheckboxFiltersGroup: FC<CheckboxFiltersGroupProps> = ({
   items,
   defaultItems,
   limit = 5,
-  searchInputPlaceholder = "Поиск... ",
+  searchInputPlaceholder = "Поиск...",
   className,
   onChange,
   defaultValue,
