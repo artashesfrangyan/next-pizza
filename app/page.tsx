@@ -1,4 +1,11 @@
-import { Container, Filters, Title, TopBar } from "@/components/shared";
+import {
+  Container,
+  Filters,
+  ProductCard,
+  ProductsGroupList,
+  Title,
+  TopBar,
+} from "@/components/shared";
 
 export default function Home() {
   return (
@@ -17,7 +24,110 @@ export default function Home() {
 
           {/* Items list  */}
           <div className="flex-1">
-            <div className="flex flex-col gap-16">Список товаров</div>
+            <div className="flex flex-col gap-16">
+              <ProductsGroupList
+                title="Пиццы"
+                categoryId={1}
+                items={[
+                  {
+                    id: 1,
+                    name: "Чизбургер-пицца",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EE7D611ADF5AAD898B8B651186E023",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 1,
+                    name: "Чизбургер-пицца",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EE7D611ADF5AAD898B8B651186E023",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 1,
+                    name: "Чизбургер-пицца",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EE7D611ADF5AAD898B8B651186E023",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 1,
+                    name: "Чизбургер-пицца",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EE7D611ADF5AAD898B8B651186E023",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 1,
+                    name: "Чизбургер-пицца",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EE7D611ADF5AAD898B8B651186E023",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 1,
+                    name: "Чизбургер-пицца",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EE7D611ADF5AAD898B8B651186E023",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 1,
+                    name: "Чизбургер-пицца",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EE7D611ADF5AAD898B8B651186E023",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 1,
+                    name: "Чизбургер-пицца",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EE7D611ADF5AAD898B8B651186E023",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 1,
+                    name: "Чизбургер-пицца",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EE7D611ADF5AAD898B8B651186E023",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 1,
+                    name: "Чизбургер-пицца",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EE7D611ADF5AAD898B8B651186E023",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 1,
+                    name: "Чизбургер-пицца",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EE7D611ADF5AAD898B8B651186E023",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 1,
+                    name: "Чизбургер-пицца",
+                    imageUrl:
+                      "https://media.dodostatic.net/image/r:292x292/11EE7D611ADF5AAD898B8B651186E023",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                ]}
+              />
+            </div>
           </div>
         </div>
       </Container>
