@@ -34,3 +34,5 @@ async function main() {
     console.error(e);
   }
 }
+
+main().then(async () => await prisma.$disconnect()); // [FIXME] - Add an async logic, or remove async
