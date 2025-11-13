@@ -1,5 +1,6 @@
 import { hashSync } from "bcrypt";
 import { prisma } from "./prisma-client";
+import { categories, ingredients, products } from "./constants";
 
 async function up() {
   await prisma.user.createMany({
@@ -20,6 +21,18 @@ async function up() {
       },
     ],
   });
+
+  await prisma.category.createMany({
+    data: categories,
+  });
+
+  await prisma.ingredient.createMany({
+    data: ingredients,
+  });
+
+    await prisma.product.createMany({
+    data: products,
+  });
 }
 
 async function down() {
@@ -35,4 +48,10 @@ async function main() {
   }
 }
 
-main().then(async () => await prisma.$disconnect()); // [FIXME] - Add an async logic, or remove async
+main()
+  .then(async () => await prisma.$disconnect())
+  .catch(async (e) => {
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+  });

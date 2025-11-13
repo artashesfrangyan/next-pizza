@@ -38,9 +38,9 @@ model Product {
 
     name String
     imageUrl String
+    catergoryId Int
 
     category Category @relation(fields: [catergoryId], references: [id])
-    catergoryId Int
 
     ingredients Ingredient[]
     variations ProductVariation[]
