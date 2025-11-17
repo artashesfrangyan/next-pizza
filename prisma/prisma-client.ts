@@ -1,7 +1,15 @@
 import { PrismaClient } from "@prisma/client";
 
-const globalForPrisma = global as unknown as { prisma: PrismaClient };
+const PRISMA_KEY = Symbol.for("prisma.client");
 
-export const prisma = globalForPrisma.prisma || new PrismaClient();
+type GlobalWithPrisma = typeof globalThis & {
+  [PRISMA_KEY]?: PrismaClient;
+};
 
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+const globalWithPrisma = globalThis as GlobalWithPrisma;
+
+export const prisma = globalWithPrisma[PRISMA_KEY] || new PrismaClient();
+
+if (process.env.NODE_ENV !== "production") {
+  globalWithPrisma[PRISMA_KEY] = prisma;
+}
