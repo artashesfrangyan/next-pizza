@@ -75,7 +75,7 @@ export const ingredients = [
     name: "Митболы",
     imageUrl: "/public/assets/images/meatballs.png",
   },
-];
+].map((obj, index) => ({ id: index + 1, ...obj }));
 
 export const products = [
   {

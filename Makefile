@@ -1,8 +1,9 @@
-.PHONY: help dev build start docker-dev docker-prod db-push db-seed db-studio db-reset clean
+.PHONY: help dev dev-all build start docker-dev docker-prod db-push db-seed db-studio db-reset clean
 
 help:
 	@echo "Доступные команды:"
 	@echo "  make dev          - Запустить разработку (БД + Next.js)"
+	@echo "  make dev-all      - Запустить разработку + Prisma Studio"
 	@echo "  make build        - Собрать приложение"
 	@echo "  make start        - Запустить production сервер"
 	@echo "  make docker-dev   - Запустить только БД в Docker"
@@ -16,6 +17,11 @@ help:
 dev:
 	docker-compose -f docker-compose.dev.yml up -d
 	npm run dev
+
+dev-all:
+	docker-compose -f docker-compose.dev.yml up -d
+	@echo "Запуск Next.js и Prisma Studio..."
+	@npm run dev & npm run prisma:studio
 
 build:
 	npm run build
