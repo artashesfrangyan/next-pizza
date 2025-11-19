@@ -9,153 +9,153 @@ export const categories = [
 export const ingredients = [
   {
     name: "Сырный бортик",
-    imageUrl: "/public/assets/images/cheese-border.png",
+    imageUrl: "/assets/images/ingredients/cheese-border.png",
   },
   {
     name: "Сливочная моцарелла",
-    imageUrl: "/public/assets/images/mozzarella.png",
+    imageUrl: "/assets/images/ingredients/mozzarella.png",
   },
   {
     name: "Сыры чеддер и пармезан",
-    imageUrl: "/public/assets/images/cheddar-parmesan-cheeses.png",
+    imageUrl: "/assets/images/ingredients/cheddar-parmezan-cheeses.png",
   },
   {
     name: "Острый перец халапеньо",
-    imageUrl: "/public/assets/images/jalopeno.png",
+    imageUrl: "/assets/images/ingredients/jalopeno.png",
   },
   {
     name: "Нежный цыпленок",
-    imageUrl: "/public/assets/images/tender-chick.png",
+    imageUrl: "/assets/images/ingredients/tender-chick.png",
   },
   {
     name: "Шампиньоны",
-    imageUrl: "/public/assets/images/champignon.png",
+    imageUrl: "/assets/images/ingredients/champignon.png",
   },
   {
     name: "Ветчина",
-    imageUrl: "/public/assets/images/ham.png",
+    imageUrl: "/assets/images/ingredients/ham.png",
   },
   {
     name: "Пикантная пепперони",
-    imageUrl: "/public/assets/images/pepperoni.png",
+    imageUrl: "/assets/images/ingredients/pepperoni.png",
   },
   {
     name: "Острая чоризо",
-    imageUrl: "/public/assets/images/spicy-chorizo.png",
+    imageUrl: "/assets/images/ingredients/spicy-chorizo.png",
   },
   {
     name: "Маринованные огурчики",
-    imageUrl: "/public/assets/images/pickles.png",
+    imageUrl: "/assets/images/ingredients/pickles.png",
   },
   {
     name: "Свежие томаты",
-    imageUrl: "/public/assets/images/tomato.png",
+    imageUrl: "/assets/images/ingredients/tomato.png",
   },
   {
     name: "Красный лук",
-    imageUrl: "/public/assets/images/red-onion.png",
+    imageUrl: "/assets/images/ingredients/red-onion.png",
   },
   {
     name: "Сочные ананасы",
-    imageUrl: "/public/assets/images/pineapple",
+    imageUrl: "/assets/images/ingredients/pineapple.png",
   },
   {
     name: "Итальянские травы",
-    imageUrl: "/public/assets/images/italian-herbs.png",
+    imageUrl: "/assets/images/ingredients/italian-herbs.png",
   },
   {
     name: "Сладкий перец",
-    imageUrl: "/public/assets/images/sweet-pepper.png",
+    imageUrl: "/assets/images/ingredients/sweet-pepper.png",
   },
   {
     name: "Кубики брынзы",
-    imageUrl: "/public/assets/images/feta-cheese.png",
+    imageUrl: "/assets/images/ingredients/feta-cheese.png",
   },
   {
     name: "Митболы",
-    imageUrl: "/public/assets/images/meatballs.png",
+    imageUrl: "/assets/images/ingredients/meatballs.png",
   },
 ].map((obj, index) => ({ id: index + 1, ...obj }));
 
 export const products = [
   {
     name: "Омлет с ветчиной и грибами",
-    imageUrl: "/public/assets/images/omelette-ham-mushrooms.webp",
+    imageUrl: "/assets/images/products/omelette-ham-mushrooms.webp",
     categoryId: 2,
   },
   {
     name: "Омлет с пепперони",
-    imageUrl: "/public/assets/images/omelette-pepperoni.webp",
+    imageUrl: "/assets/images/products/omelette-pepperoni.webp",
     categoryId: 2,
   },
   {
     name: "Кофе Латте",
-    imageUrl: "/public/assets/images/coffee-latte.webp",
+    imageUrl: "/assets/images/products/coffee-latte.webp",
     categoryId: 2,
   },
   {
     name: "Дэнвич ветчина и сыр",
-    imageUrl: "/public/assets/images/dandnwich-ham-cheese.webp",
+    imageUrl: "/assets/images/products/dandwich-ham-cheese.webp",
     categoryId: 3,
   },
   {
     name: "Куриные наггетсы",
-    imageUrl: "/public/assets/images/chicken-nuggets.webp",
+    imageUrl: "/assets/images/products/chicken-nuggets.webp",
     categoryId: 3,
   },
   {
     name: "Картофель из печи с соусом 🌱",
-    imageUrl: "/public/assets/images/baked-potato-vegan-sauce.webp",
+    imageUrl: "/assets/images/products/baked-potato-vegan-sauce.webp",
     categoryId: 3,
   },
   {
     name: "Додстер",
-    imageUrl: "/public/assets/images/dodster.webp",
+    imageUrl: "/assets/images/products/dodster.webp",
     categoryId: 3,
   },
   {
     name: "Острый Додстер 🌶️🌶️",
-    imageUrl: "/public/assets/images/spicy-dodster.webp",
+    imageUrl: "/assets/images/products/spicy-dodster.webp",
     categoryId: 3,
   },
   {
     name: "Банановый молочный коктейль",
-    imageUrl: "/public/assets/images/banana-milkshake.webp",
+    imageUrl: "/assets/images/products/banana-milkshake.webp",
     categoryId: 4,
   },
   {
     name: "Карамельное яблоко молочный коктейль",
-    imageUrl: "/public/assets/images/caramel-apple-milkshake.webp",
+    imageUrl: "/assets/images/products/caramel-apple-milkshake.webp",
     categoryId: 4,
   },
   {
     name: "Молочный коктейль с печеньем Орео",
-    imageUrl: "/public/assets/images/oreo-milkshake.webp",
+    imageUrl: "/assets/images/products/oreo-milkshake.webp",
     categoryId: 4,
   },
   {
     name: "Классический молочный коктейль 👶",
-    imageUrl: "/public/assets/images/classic-milkshake.webp",
+    imageUrl: "/assets/images/products/classic-milkshake.webp",
     categoryId: 4,
   },
   {
     name: "Ирландский Капучино",
-    imageUrl: "/public/assets/images/irish-cappuccino.webp",
+    imageUrl: "/assets/images/products/irish-cappucino.webp",
     categoryId: 5,
   },
   {
     name: "Кофе Карамельный капучино",
-    imageUrl: "/public/assets/images/caramel-cappuccino.webp",
+    imageUrl: "/assets/images/products/caramel-cappucino.webp",
     categoryId: 5,
   },
   {
     name: "Кофе Кокосовый латте",
-    imageUrl: "/public/assets/images/coconut-latte-coffee.webp",
+    imageUrl: "/assets/images/products/coconut-latte-coffee.webp",
     categoryId: 5,
   },
   {
     name: "Кофе Американо",
-    imageUrl: "/public/assets/images/coffee-americano.webp",
+    imageUrl: "/assets/images/products/coffee-americano.webp",
     categoryId: 5,
   },
 ];

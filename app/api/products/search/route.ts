@@ -5,7 +5,7 @@ export async function GET(req: NextRequest) {
   const query = req.nextUrl.searchParams.get("query");
 
   if (!query) {
-    return NextResponse.json({ error: "Query is required" }, { status: 400 });
+    return NextResponse.json([]);
   }
 
   const product = await prisma.product.findMany({
