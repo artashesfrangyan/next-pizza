@@ -6,7 +6,7 @@ import { Product } from "@prisma/client";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState, type FC } from "react";
+import { useEffect, useRef, useState, type FC } from "react";
 import { useClickAway, useDebounce } from "react-use";
 
 interface Props {
@@ -26,6 +26,14 @@ export const SearchInput: FC<Props> = ({ className }) => {
       Api.products.search(searchQuery).then((res) => setProducts(res));
     }
   }, 250, [searchQuery]);
+
+  useEffect(() => {
+    return () => {
+      setProducts([]);
+      setSearchQuery("");
+      setFocused(false);
+    }
+  }, []);
 
   useClickAway(ref, () => {
     setFocused(false);
