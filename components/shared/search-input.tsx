@@ -23,7 +23,9 @@ export const SearchInput: FC<Props> = ({ className }) => {
     if (!searchQuery) {
       setProducts([]);
     } else {
-      Api.products.search(searchQuery).then((res) => setProducts(res));
+      Api.products.search(searchQuery)
+        .then((res) => setProducts(res))
+        .catch(console.log);
     }
   }, 250, [searchQuery]);
 
