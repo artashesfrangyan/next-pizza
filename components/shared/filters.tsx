@@ -1,6 +1,6 @@
 'use client';
 
-import type { FC } from "react";
+import { useState, type FC } from "react";
 import { Title } from "./title";
 import { FilterCheckbox } from "./filter-checkbox";
 import { Input } from "../ui";
@@ -12,13 +12,23 @@ interface FiltersProps {
   className?: string;
 }
 
+interface PriceProps {
+  priceFrom: number;
+  priceTo: number;
+}
+
 export const Filters: FC<FiltersProps> = ({ className }) => {
-  const { ingredients, loading } = useFilterIngredients();
+  const { ingredients, loading, onAddId, selectedIds } = useFilterIngredients();
+  const [prices, setPrice] = useState<PriceProps>({ priceFrom: 0, priceTo: 1000 });
 
   const items = ingredients.map((ingredient) => ({
     text: ingredient.name,
     value: String(ingredient.id),
   }));
+
+  const updatePrice = (name: keyof PriceProps, value: number) => {
+    setPrice({ ...prices, [name]: value });
+  };
 
   return (
     <div className={className}>
@@ -37,17 +47,23 @@ export const Filters: FC<FiltersProps> = ({ className }) => {
             placeholder="0"
             min={0}
             max={1000}
-            defaultValue={0}
+            value={prices.priceFrom}
+            onChange={(e) => updatePrice("priceFrom", Number(e.target.value))}
           />
           <Input
             type="number"
-            min={100}
-            value={500}
+            min={0}
+            value={prices.priceTo}
+            onChange={(e) => updatePrice("priceTo", Number(e.target.value))}
             max={1000}
             placeholder="1000"
           />
         </div>
-        <RangeSlider min={0} max={5000} step={10} value={[0, 5000]} />
+        <RangeSlider min={0} max={1000} step={10} value={[prices.priceFrom, prices.priceTo]}
+          onValueChange={([priceFrom, priceTo]) => {
+            setPrice({ priceFrom, priceTo });
+          }}
+        />
       </div>
 
       <CheckboxFiltersGroup
@@ -57,6 +73,8 @@ export const Filters: FC<FiltersProps> = ({ className }) => {
         defaultItems={items.slice(0, 6)}
         items={items}
         loading={loading}
+        onClickCheckbox={onAddId}
+        selectedIds={selectedIds}
       />
     </div>
   );
