@@ -7,7 +7,7 @@ interface ReturnProps {
     ingredients: Ingredient[];
     loading: boolean;
     selectedIds: Set<string>;
-    onAdd: (id: string) => void;
+    onAddId: (id: string) => void;
 }
 
 export const useFilterIngredients = (): ReturnProps => {

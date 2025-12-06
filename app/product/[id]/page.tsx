@@ -7,5 +7,5 @@ interface ProductPageProps {
 }
 
 export const ProductPage: FC<ProductPageProps> = ({params: {id}}) => {
-    return ();
+    return (<></>);
 }

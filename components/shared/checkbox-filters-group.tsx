@@ -7,14 +7,15 @@ import { Input, Skeleton } from "../ui";
 interface CheckboxFiltersGroupProps {
   title: string;
   items: FilterCheckboxProps[];
-  defaultItems: FilterCheckboxProps[];
+  defaultItems?: FilterCheckboxProps[];
   limit?: number;
-  loading: boolean;
+  loading?: boolean;
   searchInputPlaceholder?: string;
-  onClickCheckbox?: (id: string[]) => void;
+  onClickCheckbox?: (id: string) => void;
   defaultValue?: string[];
   className?: string;
-  selectedIds?: Set<string>;
+  selected?: Set<string>;
+  name?: string;
 }
 
 export const CheckboxFiltersGroup: FC<CheckboxFiltersGroupProps> = ({
@@ -26,8 +27,7 @@ export const CheckboxFiltersGroup: FC<CheckboxFiltersGroupProps> = ({
   className,
   loading,
   onClickCheckbox,
-  defaultValue,
-  selectedIds
+  selected
 }) => {
   const [showAll, setShowAll] = useState(false);
   const [searchValue, setSearchValue] = useState("");
@@ -36,7 +36,7 @@ export const CheckboxFiltersGroup: FC<CheckboxFiltersGroupProps> = ({
     ? items.filter((item) =>
         item.text.toLowerCase().includes(searchValue.toLowerCase())
       )
-    : defaultItems.slice(0, limit);
+    : (defaultItems || items).slice(0, limit);
 
   const onChangeSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
@@ -74,8 +74,8 @@ export const CheckboxFiltersGroup: FC<CheckboxFiltersGroupProps> = ({
             text={item.text}
             value={item.value}
             endAdornment={item.endAdornment}
-            checked={selectedIds?.has(item.value)}
-            onCheckedChange={() => onClickCheckbox?.([item.value])}
+            checked={selected?.has(item.value)}
+            onCheckedChange={() => onClickCheckbox?.(item.value)}
           />
         ))}
       </div>
