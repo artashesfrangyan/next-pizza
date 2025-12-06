@@ -30,17 +30,30 @@ export const Filters: FC<FiltersProps> = ({ className }) => {
     setPrice({ ...prices, [name]: value });
   };
 
-  const [sizes, toggleSizes] = useSet(new Set<string>([]));
+  const [pizzaTypes, { toggle: togglePizzaTypes }] = useSet(new Set<string>([]));
+  const [sizes, { toggle: toggleSizes }] = useSet(new Set<string>([]));
 
   return (
     <div className={className}>
       <Title text="Фильтрация" size="sm" className="mb-5 font-bold" />
 
       <CheckboxFiltersGroup
+        title="Тип теста"
+        name="pizzaTypes"
+        className="mb-5"
+        onClickCheckbox={togglePizzaTypes}
+        selected={pizzaTypes}
+        items={[
+          { text: 'Тонкое', value: '1' },
+          { text: 'Традиционное', value: '2' },
+        ]}
+      />
+
+      <CheckboxFiltersGroup
         title="Размеры"
         name="sizes"
         className="mb-5"
-        onClickCheckbox={(val) => toggleSizes.toggle(val)}
+        onClickCheckbox={toggleSizes}
         selected={sizes}
         items={[
           { text: '20 см', value: '20' },

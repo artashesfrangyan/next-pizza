@@ -54,7 +54,7 @@ export const CheckboxFiltersGroup: FC<CheckboxFiltersGroupProps> = ({
 
   return (
     <div className={className}>
-      <p className="Font-bold mb-3">{title}</p>
+      <p className="font-bold mb-3">{title}</p>
 
       {showAll && (
         <div className="mb-5">
