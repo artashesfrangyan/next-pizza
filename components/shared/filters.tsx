@@ -1,12 +1,14 @@
-'use client';
+"use client";
 
-import { useState, type FC } from "react";
+import { useEffect, useState, type FC } from "react";
 import { Title } from "./title";
 import { Input } from "../ui";
 import { RangeSlider } from "./range-slider";
 import { CheckboxFiltersGroup } from "./checkbox-filters-group";
 import { useFilterIngredients } from "@/hooks/useFilterIngredients";
 import { useSet } from "react-use";
+import qs from "qs";
+import { useRouter } from "next/navigation";
 
 interface FiltersProps {
   className?: string;
@@ -18,8 +20,12 @@ interface PriceProps {
 }
 
 export const Filters: FC<FiltersProps> = ({ className }) => {
+  const router = useRouter();
   const { ingredients, loading, onAddId, selectedIds } = useFilterIngredients();
-  const [prices, setPrice] = useState<PriceProps>({ priceFrom: 0, priceTo: 1000 });
+  const [prices, setPrice] = useState<PriceProps>({
+    priceFrom: 0,
+    priceTo: 1000,
+  });
 
   const items = ingredients.map((ingredient) => ({
     text: ingredient.name,
@@ -30,8 +36,25 @@ export const Filters: FC<FiltersProps> = ({ className }) => {
     setPrice({ ...prices, [name]: value });
   };
 
-  const [pizzaTypes, { toggle: togglePizzaTypes }] = useSet(new Set<string>([]));
+  const [pizzaTypes, { toggle: togglePizzaTypes }] = useSet(
+    new Set<string>([]),
+  );
   const [sizes, { toggle: toggleSizes }] = useSet(new Set<string>([]));
+
+  useEffect(() => {
+    const filters = {
+      ...prices,
+      pizzaTypes: Array.from(pizzaTypes),
+      sizes: Array.from(sizes),
+      ingredients: Array.from(selectedIds || []),
+    };
+
+    const query = qs.stringify(filters, { arrayFormat: "comma" });
+
+    if (query) {
+      router.push(`?${query}`);
+    }
+  }, [pizzaTypes, sizes, ingredients]);
 
   return (
     <div className={className}>
@@ -44,8 +67,8 @@ export const Filters: FC<FiltersProps> = ({ className }) => {
         onClickCheckbox={togglePizzaTypes}
         selected={pizzaTypes}
         items={[
-          { text: 'Тонкое', value: '1' },
-          { text: 'Традиционное', value: '2' },
+          { text: "Тонкое", value: "1" },
+          { text: "Традиционное", value: "2" },
         ]}
       />
 
@@ -56,9 +79,9 @@ export const Filters: FC<FiltersProps> = ({ className }) => {
         onClickCheckbox={toggleSizes}
         selected={sizes}
         items={[
-          { text: '20 см', value: '20' },
-          { text: '30 см', value: '30' },
-          { text: '40 см', value: '40' },
+          { text: "20 см", value: "20" },
+          { text: "30 см", value: "30" },
+          { text: "40 см", value: "40" },
         ]}
       />
 
@@ -82,7 +105,11 @@ export const Filters: FC<FiltersProps> = ({ className }) => {
             placeholder="1000"
           />
         </div>
-        <RangeSlider min={0} max={1000} step={10} value={[prices.priceFrom, prices.priceTo]}
+        <RangeSlider
+          min={0}
+          max={1000}
+          step={10}
+          value={[prices.priceFrom, prices.priceTo]}
           onValueChange={([priceFrom, priceTo]) => {
             setPrice({ priceFrom, priceTo });
           }}
