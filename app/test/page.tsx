@@ -6,7 +6,6 @@ export default function BrokenUserList() {
   const [users, setUsers] = React.useState([]);
   const [search, setSearch] = React.useState('');
 
-  // ❌ Проблема: useCallback без зависимостей
   const fetchUsers = React.useCallback(() => {
     fetch('/api/users')
       .then(res => res.json())
