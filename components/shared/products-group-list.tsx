@@ -31,8 +31,9 @@ export const ProductsGroupList: FC<ProductsGroupListProps> = ({
   useEffect(() => {
     if (intersection?.isIntersecting) {
       setActiveCategoryId(categoryId);
+      window.history.replaceState(null, '', `#${title}`);
     }
-  }, [categoryId, intersection?.isIntersecting, title]);
+  }, [categoryId, title, intersection?.isIntersecting, setActiveCategoryId]);
 
   return (
     <div className={className} id={title} ref={intersectionRef}>
@@ -45,7 +46,7 @@ export const ProductsGroupList: FC<ProductsGroupListProps> = ({
             id={product.id}
             name={product.name}
             imageUrl={product.imageUrl}
-            price={product.items[0].price}
+            price={product.variations[0].price}
           />
         ))}
       </div>
