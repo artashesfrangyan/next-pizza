@@ -2,16 +2,16 @@
 
 import { cn } from "@/lib/utils";
 import { useCategoryStore } from "@/store/category";
+import { Category } from "@prisma/client";
 import type { FC } from "react";
 
 interface CategoriesProps {
   className?: string;
+  categories: Category[];
 }
 
-export const Categories: FC<CategoriesProps> = ({ className }) => {
+export const Categories: FC<CategoriesProps> = ({ className, categories }) => {
   const categoryActiveId = useCategoryStore((state) => state.activeId);
-  const categories = useCategoryStore((state) => state.categories);
-
   return (
     <div
       className={cn("inline-flex gap-1 bg-gray-50 p-1 rounded-2xl", className)}
